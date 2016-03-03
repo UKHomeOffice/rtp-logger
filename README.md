@@ -1,4 +1,4 @@
-# rtp-logger
+# rtp-logger  [![Build Status](https://img.shields.io/travis/UKHomeOffice/rtp-logger.svg)](https://travis-ci.org/UKHomeOffice/rtp-logger)
 
 Thin wrapper around [winston](https://www.npmjs.com/package/winston) for use in Registered Traveller Programme node.js applications.
 
