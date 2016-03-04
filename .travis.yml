@@ -1,5 +1,12 @@
 language: node_js
 node_js:
-  - "4"
-  - "5"
-
+- '4'
+- '5'
+deploy:
+  provider: npm
+  email: noels@silex-consulting.com
+  api_key:
+    secure: q9iT5di+WRqMBX/kjtBghefaL4ysrxq8kGqHe0fz7bU3omvVnwIsUmMiGukYJW6mVzZ3L0Ij4PHL7O76Gt5x7ogrmWipL1/i4UQxqGxKTXw6WbI6S2QMO+2hGB9HZMIRHU5SoDV83emA3j1xSPQl1qAtvQ5GWbpYeQiesi9vW+JnFrkKgCSZlhrxSFvL4jxVE5poWymgdPbOpP072U/52VUakkzP+GEQnds0Pho+dOSITsJQMuBtZXQPpscuLDycRM8Bmh6GfFrqY6lr869V8sv9wMt/QaqRQJpPD2xpB2Gp9/hlyhrpbnhVOoLkfJJ28BAwVxJVC9jw+pqeKsnKnYiNwFKekqfYkpxOhvLAYUS77vv8Jy1uQc5e5UQXEH6Tkqg2Gw/h8BWjTHVG9+MrvJUu5nEMcyYW2bn2yTE78DAWuyLHUs81rXXx4SCk/eonXivC6RQ/LkZt5LyL0zOE74XIKeelJ0FlZW8mc7Vu712R2i15seiByhVZryWy/YdJYKKMN9U9QZw9pOAIhOcrnhEN8zs36X3z9pqnXRlxKKkP+sdyUkJocttxKJqACj8A/1hCmY31MjQGk2Ob0B1jZRafw0vMlIQ2CZV3kjEgflAieGpAUDc8m2k7QbwXPAUwS5kutokG47dIMXtbqGuUvS/HFZpP1hEFTQIol64/55g=
+  on:
+    tags: true
+    repo: UKHomeOffice/rtp-logger
