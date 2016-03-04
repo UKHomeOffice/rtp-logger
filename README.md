@@ -92,3 +92,5 @@ If only `logLocation` is present then the default config for a file transport wi
     maxFiles: 3
 }
 ```
+
+The Registered Traveller Programme uses BrowserStack for mobile and desktop testing https://www.browserstack.com/
