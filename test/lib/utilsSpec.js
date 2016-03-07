@@ -61,6 +61,18 @@ describe('utils', function () {
                 expect(formatted).to.equal(expectedLog);
 
             });
+            it('should not log an empty object', function () {
+
+                options.meta = {};
+                var expectedLog = `warning: ${dateString} [unit-tests] lorem`;
+
+                // Act
+                var formatted = loggerUtils.formatter(options);
+
+                // Assert
+                expect(formatted).to.equal(expectedLog);
+
+            });
 
             it('should log a plain object', function () {
                 // Arrange
