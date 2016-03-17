@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.digital.homeoffice.gov.uk/REGT/rtp-logger"
+    "url": "https://github.com/UKHomeOffice/rtp-logger.git"
   },
   "dependencies": {
     "lodash": "^4.6.1",
