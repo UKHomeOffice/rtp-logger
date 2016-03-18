@@ -9,7 +9,6 @@
     "url": "https://github.com/UKHomeOffice/rtp-logger.git"
   },
   "dependencies": {
-    "lodash": "^4.6.1",
     "winston": "^2.1.1"
   },
   "devDependencies": {
