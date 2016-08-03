@@ -1,6 +1,6 @@
 {
   "name": "rtp-logger",
-  "version": "1.1.1",
+  "version": "1.4.0",
   "description": "Registered traveller programme logger",
   "author": "UK Home Office Registered Traveller Team",
   "license": "MIT",
@@ -9,6 +9,7 @@
     "url": "https://gitlab.digital.homeoffice.gov.uk/REGT/rtp-logger"
   },
   "dependencies": {
+    "moment": "^2.14.1",
     "winston": "^2.1.1"
   },
   "devDependencies": {
