@@ -47,7 +47,7 @@ describe('Logger', function() {
                     stdMocks.restore();
                     var output = stdMocks.flush();
                     expect(output.stdout.length).to.equal(1);
-                    var re = new RegExp(level + ': [0-9-]{10} [0-9:]{8} \\[not-set\\] test log message');
+                    var re = new RegExp(`\\[not-set\\] \\[${level.toUpperCase()}\\] \\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z test log message`);
                     expect(output.stdout[0]).to.match(re);
                 });
             });
@@ -57,7 +57,8 @@ describe('Logger', function() {
                 stdMocks.restore();
                 var output = stdMocks.flush();
                 expect(output.stderr.length).to.equal(1);
-                expect(output.stderr[0]).to.match(/error: [0-9-]{10} [0-9:]{8} \[not-set\] test log message/);
+                var re = new RegExp(`\\[not-set\\] \\[ERROR\\] \\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z test log message`);
+                expect(output.stderr[0]).to.match(re);
             });
 
             it('should log objects', function() {
@@ -146,11 +147,12 @@ describe('Logger', function() {
                         appName: 'TEST-APP'
                     });
                     stdMocks.use();
-                    logger.info('test log entry');
+                    logger.info('test log message');
                     stdMocks.restore();
                     var output = stdMocks.flush();
                     expect(output.stdout.length).to.equal(1);
-                    expect(output.stdout[0]).to.match(/info: [0-9-]{10} [0-9:]{8} \[TEST-APP\] test log entry/);
+                    var re = new RegExp(`\\[TEST-APP\\] \\[INFO\\] \\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z test log message`);
+                    expect(output.stdout[0]).to.match(re);
                 });
 
             });
