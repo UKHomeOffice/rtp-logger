@@ -1,0 +1,30 @@
+pipeline:
+  build_4:
+    image: node:4.4.2
+    commands:
+      - npm --loglevel warn install -g npm@3
+      - npm --loglevel warn install
+      - npm test
+    when:
+      event: [push, pull_request]
+
+  publish:
+    commands:
+      - "docker run --rm -e NPM_USERNAME=${NPM_USER} -e NPM_PASSWORD=\"${NPMJS_PASSWORD}\" -e NPM_EMAIL=${NPM_EMAIL} -v $(pwd):$(pwd) -w $(pwd) plugins/npm"
+    environment:
+      - "DOCKER_HOST=tcp://127.0.0.1:2375"
+      - NPM_USER=ukhomeoffice
+      - NPM_PASS="${NPMJS_PASSWORD}"
+      - NPM_EMAIL=DevOps@digital.homeoffice.gov.uk
+    image: "docker:1.11"
+    when:
+      branch: master
+      event: push
+
+services:
+  dind:
+    command:
+      - "-s"
+      - overlay
+    image: "docker:1.11-dind"
+    privileged: true
