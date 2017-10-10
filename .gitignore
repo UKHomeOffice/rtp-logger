@@ -37,3 +37,6 @@ node_modules
 # IDE
 .idea
 *.iml
+
+# lock file
+package-lock.json
