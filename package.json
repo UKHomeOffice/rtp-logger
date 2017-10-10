@@ -8,6 +8,10 @@
     "type": "git",
     "url": "https://github.com/UKHomeOffice/rtp-logger.git"
   },
+  "engines": {
+    "node": "^6.11.4",
+    "npm": "^5.4.2"
+  },
   "dependencies": {
     "winston": "^2.1.1"
   },
