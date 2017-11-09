@@ -29,7 +29,7 @@ describe('utils', function () {
                 timestamp: timestamp,
                 message: 'lorem'
             };
-            var expectedLog = `${options.level}: ${dateString} [${options.label}] ${options.message}`;
+            var expectedLog = `[${options.label}] [${options.level}] ${dateString} ${options.message}`;
 
             // Act
             var formatted = loggerUtils.formatter(options);
@@ -52,7 +52,7 @@ describe('utils', function () {
 
             it('should log a simple value', function () {
                 options.meta = 'StringValue';
-                var expectedLog = `warning: ${dateString} [unit-tests] lorem : StringValue`;
+                var expectedLog = `[unit-tests] [warning] ${dateString} lorem : StringValue`;
 
                 // Act
                 var formatted = loggerUtils.formatter(options);
@@ -64,7 +64,7 @@ describe('utils', function () {
             it('should not log an empty object', function () {
 
                 options.meta = {};
-                var expectedLog = `warning: ${dateString} [unit-tests] lorem`;
+                var expectedLog = `[unit-tests] [warning] ${dateString} lorem`;
 
                 // Act
                 var formatted = loggerUtils.formatter(options);
@@ -77,7 +77,7 @@ describe('utils', function () {
             it('should log a plain object', function () {
                 // Arrange
                 options.meta = {'key': 'value'};
-                var expectedLog = `warning: ${dateString} [unit-tests] lorem : { key: 'value' }`;
+                var expectedLog = `[unit-tests] [warning] ${dateString} lorem : { key: 'value' }`;
 
                 // Act
                 var formatted = loggerUtils.formatter(options);
@@ -93,7 +93,7 @@ describe('utils', function () {
                 options.meta.root = options.meta;
 
                 var metaAsString = "{ key: 'value', root: [Circular] }";
-                var expectedLog = `warning: ${dateString} [unit-tests] lorem : ${metaAsString}`;
+                var expectedLog = `[unit-tests] [warning] ${dateString} lorem : ${metaAsString}`;
 
                 // Act
                 var formatted = loggerUtils.formatter(options);
@@ -115,7 +115,7 @@ describe('utils', function () {
                 options.meta.beta = beta;
 
                 var metaAsString = `{ key: \'value\',\n  alpha: { link: { link: [Circular] } },\n  beta: { link: { link: [Circular] } } }`;
-                var expectedLog = `warning: ${dateString} [unit-tests] lorem : ${metaAsString}`;
+                var expectedLog = `[unit-tests] [warning] ${dateString} lorem : ${metaAsString}`;
 
                 // Act
                 var formatted = loggerUtils.formatter(options);
@@ -136,7 +136,7 @@ describe('utils', function () {
                     };
 
                     var metaAsString = `{ [Error: ENOENT: no such file or directory, open \'notexistantfile\']\n  errno: -2,\n  code: \'ENOENT\',\n  syscall: \'open\',\n  path: \'notexistantfile\' }`;
-                    var expectedLog = `warning: ${dateString} [unit-tests] lorem : ${metaAsString}`;
+                    var expectedLog = `[unit-tests] [warning] ${dateString} lorem : ${metaAsString}`;
 
                     // Act
                     var formatted = loggerUtils.formatter(options);
