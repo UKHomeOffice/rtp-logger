@@ -22,6 +22,7 @@ pipeline:
       - NPM_CONFIG_ALWAYS_AUTH=true
     commands:
       - npm publish
+      - npm config ls -l
     when:
       event: [tag]
 
